@@ -1,0 +1,44 @@
+plugins {
+    id 'java-library'
+    id 'eclipse'
+    id 'idea'
+    id 'maven-publish'
+    id 'net.neoforged.gradle.userdev' version '7.0.105'
+}
+
+version = "1.0.0"
+group = "dev.gigaherz.fakewaterviewer"
+
+repositories {
+    mavenLocal()
+}
+
+base {
+    archivesName = "FakeWaterViewer"
+}
+
+// Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+
+runs {
+    configureEach {
+        systemProperty 'forge.logging.markers', 'REGISTRIES'
+        systemProperty 'forge.logging.console.level', 'debug'
+
+        modSource project.sourceSets.main
+    }
+
+    client {
+    }
+
+    server {
+    }
+}
+
+dependencies {
+    implementation "net.neoforged:neoforge:20.4.227"
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}

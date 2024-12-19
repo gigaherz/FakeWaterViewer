@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="CC0"
+
+[[mods]]
+modId="fakewaterviewer"
+version="${file.jarVersion}"
+displayName="Fake Water Viewer"
+description='''Displays full-height non-source blocks while holding kelp.'''
+
+[[dependencies.fakewaterviewer]]
+    modId="neoforge"
+    type="required"
+    versionRange="[20.4.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.fakewaterviewer]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.20.4,1.21)"
+    ordering="NONE"
+    side="BOTH"
